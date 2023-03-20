@@ -5,7 +5,7 @@ set record full insn-number-max 2000000000
 br float-half.c:9
 next
 d br 1
-tbr 49
+tbr 43
 c
 tbr 9
 rc

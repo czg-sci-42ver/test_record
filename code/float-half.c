@@ -37,15 +37,9 @@ float_bits float_half(float_bits f) {
     /* Normalized to denormalized */
     rest >>= 1;
     rest += addition;
-    // exp = rest >> 23 & 0xFF;
-    // assert(exp==0);
-    
     frac = rest & 0x7FFFFF;
     exp--;
-    // frac_cp=frac>>1+1u<<(23-1)+addition;
-    // (rest >> 1)+addition
     frac_cp=(frac_cp>>1)+(1u<<(23-1))+addition;
-    // assert(frac_cp==frac);
     if(frac_cp!=frac)
     {
       printf("%u %u",frac,frac_cp);
@@ -56,5 +50,4 @@ float_bits float_half(float_bits f) {
   }
 
   return sig << 31 | exp << 23 | frac;
-  // return sig << 31 | exp << 23 | frac_cp;
 }
